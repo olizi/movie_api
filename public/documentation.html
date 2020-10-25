@@ -5,12 +5,161 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Documentation</title>
+  <title>Documentation myFlix REST API</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
 <body>
-  <h1>Documentation</h1>
-  <h2>This page will document all of the server endpoints.</h2>
+  <header>
+    <h1>Documentation - myFlix REST API</h1>
+    <h2>This page documents all of the server endpoints.</h2>
+  </header>
+
+  <div>
+    <table>
+      <col class="column__one">
+      <col class="column__two">
+      <col class="column__three">
+      <col class="column__four">
+      <col class="column__five">
+      <tr>
+        <th >Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>Get a list of all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>JSON object holding data about all movies</td>
+      </tr>
+      <tr>
+        <td>Get data about a movie by title</td>
+        <td>/movies/:[movie]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>JSON object holding data about a single movie<br>
+          Example:<br>
+          <small>
+            {<br>
+              "Title" : "Pulb Fiction",<br>
+              "Release Date" : "1994",<br>
+              "Genre" : "Crime, Drama",<br>
+              "Director" : "Quentin Tarantino",<br>
+              "Stars" : "John Travolta, Uma Thurman, Samuel L. Jackson",<br>
+              "Description" : "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",<br>
+              "ImagePath" : "Pulb_Fiction.jpg",<br>
+              "ID" : "1234-5678-90"<br>
+            }
+          </small>
+        </td>
+      <tr>
+        <td>Get data about a genre by name</td>
+        <td>/movies/genres/:[genre]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>JSON object holding data about genre and description<br>
+          Example:<br>
+          <small>
+            {<br>
+              "Genre" : "Sci-Fi",<br>
+              "Description" : "Science fiction (sometimes shortened to sci-fi or SF) is a genre of speculative fiction that typically deals with imaginative and futuristic concepts such as advanced science and technology, space exploration, time travel, parallel universes, and extraterrestrial life."<br>
+            }
+          </small>
+        </td>
+      </tr>
+      <tr>
+        <td>Get data about a director by name</td>
+        <td>/movies/directors/:[director]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>JSON object holding data about a director<br>
+          Example:<br>
+          <small>
+            {<br>
+              "Name": "Quentin Tarantino",<br>
+              "Birth": "1963",<br>
+              "Death": "-",<br>
+              "Bio": "Quentin Tarantino is an American film director, producer, screenwriter, and actor."<br>
+            }
+          </small>
+        </td>
+      </tr>
+      <tr>
+        <td>Add new user</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>JSON object holding data about the user<br>Example:<br>
+          <small>
+            {<br>
+              "username": "johndoe",<br>
+              "Password": "123456",<br>
+              "email": "johndoe@me.com"<br>
+            }
+          </small>
+        </td>
+        <td>JSON object holding data about the user<br>Example:<br>
+          <small>
+            {<br>
+              "username": "johndoe",<br>
+              "Password": "123456",<br>
+              "email": "johndoe@me.com"<br>
+            }
+          </small>
+        </td>
+      </tr>
+      <tr>
+        <td>Update user</td>
+        <td>/users/:[username]</td>
+        <td>PUT</td>
+        <td>JSON object holding data about the user<br>Example:<br>
+          <small>
+            {<br>
+              "username": "johndoe",<br>
+              "Password": "123456",<br>
+              "email": "johndoe@me.com"<br>
+            }
+          </small>
+        </td>
+        <td>JSON object holding data about the user<br>Example:<br>
+          <small>
+            {<br>
+              "username": "johndoe",<br>
+              "Password": "123456",<br>
+              "email": "johndoe@me.com"<br>
+            }
+          </small>
+        </td>
+      </tr>
+      <tr>
+        <td>Add a movie to users list of favorites</td>
+        <td>/users/:username/movies/:[movie]</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>A text message that indicates that a movie has been added to the list of favorites</td>
+      </tr>
+      <tr>
+        <td>Remove a movie from users list of favorites</td>
+        <td>/users/:username/movies/:[movie]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message that indicates that a movie has been removed from the list of favorites</td>
+      </tr>
+      <tr>
+        <td>Remove a user</td>
+        <td>/users/:[username]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message that indicates that a user has been removed</td>
+      </tr>
+    </table>
+  </div>
+
+
 </body>
 
 </html>
